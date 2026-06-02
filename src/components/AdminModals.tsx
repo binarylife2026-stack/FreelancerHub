@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   X,
   ShieldAlert,
@@ -275,83 +276,110 @@ export default function AdminModals({
   return (
     <>
       {/* 1. AUTH LOGIN DIALOG MODAL */}
-      {isLoginOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md animate-none">
-          <div className="w-full max-w-md bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xl relative">
-            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-fiverr to-teal-400" />
-            
-            {/* Modal Header */}
-            <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
-              <div className="flex items-center gap-2 text-fiverr font-extrabold text-xs uppercase tracking-wider">
-                <KeyRound className="w-4 h-4" /> Operator ID Session Gate
-              </div>
-              <button
-                onClick={onCloseLogin}
-                className="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Modal Body */}
-            <form onSubmit={handleLoginSubmit} className="p-6 flex flex-col gap-4">
-              <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
-                  Operator Username
-                </label>
-                <input
-                  type="text"
-                  required
-                  autoComplete="off"
-                  value={operatorId}
-                  onChange={(e) => setOperatorId(e.target.value)}
-                  placeholder="e.g. admin"
-                  className="w-full bg-white border border-slate-250 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all font-mono shadow-sm"
-                />
-              </div>
-
-              <div className="relative">
-                <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
-                  Passphrase Security Authentication Key
-                </label>
-                <input
-                  type={showPass ? 'text' : 'password'}
-                  required
-                  value={passphrase}
-                  onChange={(e) => setPassphrase(e.target.value)}
-                  placeholder="e.g. sahs2026"
-                  className="w-full bg-white border border-slate-250 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all pr-12 font-mono shadow-sm"
-                />
+      <AnimatePresence>
+        {isLoginOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 30 }}
+              transition={{ type: "spring", stiffness: 350, damping: 25 }}
+              className="w-full max-w-md bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xl relative"
+            >
+              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-fiverr to-teal-400" />
+              
+              {/* Modal Header */}
+              <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+                <div className="flex items-center gap-2 text-fiverr font-extrabold text-xs uppercase tracking-wider">
+                  <KeyRound className="w-4 h-4" /> Operator ID Session Gate
+                </div>
                 <button
-                  type="button"
-                  onClick={() => setShowPass(!showPass)}
-                  className="absolute bottom-3 right-4 text-slate-400 hover:text-slate-600 transition-colors"
+                  onClick={onCloseLogin}
+                  className="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
                 >
-                  {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
-              {loginError && (
-                <div className="text-[11px] font-bold text-rose-600 bg-rose-50 border border-rose-150 p-3 rounded-xl font-mono">
-                  {loginError}
+              {/* Modal Body */}
+              <form onSubmit={handleLoginSubmit} className="p-6 flex flex-col gap-4">
+                <div>
+                  <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
+                    Operator Username
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    autoComplete="off"
+                    value={operatorId}
+                    onChange={(e) => setOperatorId(e.target.value)}
+                    placeholder="e.g. admin"
+                    className="w-full bg-white border border-slate-250 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all font-mono shadow-sm"
+                  />
                 </div>
-              )}
 
-              <button
-                type="submit"
-                className="w-full bg-fiverr hover:bg-fiverr-dark text-white font-black text-sm py-4 rounded-xl transition-all shadow-lg shadow-fiverr/15 mt-2 flex items-center justify-center gap-1 cursor-pointer"
-              >
-                Validate Session Terminal
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+                <div className="relative">
+                  <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
+                    Passphrase Security Authentication Key
+                  </label>
+                  <input
+                    type={showPass ? 'text' : 'password'}
+                    required
+                    value={passphrase}
+                    onChange={(e) => setPassphrase(e.target.value)}
+                    placeholder="e.g. sahs2026"
+                    className="w-full bg-white border border-slate-250 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all pr-12 font-mono shadow-sm"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPass(!showPass)}
+                    className="absolute bottom-3 right-4 text-slate-400 hover:text-slate-600 transition-colors"
+                  >
+                    {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+
+                {loginError && (
+                  <div className="text-[11px] font-bold text-rose-600 bg-rose-50 border border-rose-150 p-3 rounded-xl font-mono">
+                    {loginError}
+                  </div>
+                )}
+
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  className="w-full bg-fiverr hover:bg-fiverr-dark text-white font-black text-sm py-4 rounded-xl transition-colors shadow-lg shadow-fiverr/15 mt-2 flex items-center justify-center gap-1 cursor-pointer"
+                >
+                  Validate Session Terminal
+                </motion.button>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* 2. CENTRAL SYSTEM CORE MANAGEMENT DASHBOARD */}
-      {isAdminPanelOpen && isAdmin && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-md">
-          <div className="w-full max-w-5xl xl:max-w-6xl bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl relative max-h-[96vh] sm:max-h-[92vh] flex flex-col animate-none">
+      <AnimatePresence>
+        {isAdminPanelOpen && isAdmin && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 30 }}
+              transition={{ type: "spring", stiffness: 350, damping: 26 }}
+              className="w-full max-w-5xl xl:max-w-6xl bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl relative max-h-[96vh] sm:max-h-[92vh] flex flex-col"
+            >
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-fiverr to-teal-400" />
             
              {/* Modal Header */}
@@ -1072,9 +1100,10 @@ export default function AdminModals({
 
             </div>
           </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
+    </AnimatePresence>
     </>
   );
 }

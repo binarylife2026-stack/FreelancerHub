@@ -110,20 +110,35 @@ export default function CategoryPage({
               return (
                 <motion.div
                   layout
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, y: 30, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.97, y: -20 }}
+                  whileHover={{ 
+                    y: -8, 
+                    scale: 1.015,
+                    boxShadow: "0 20px 25px -5px rgba(36,182,75,0.08), 0 10px 10px -5px rgba(36,182,75,0.03)"
+                  }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 350, 
+                    damping: 26,
+                    layout: { type: "spring", stiffness: 350, damping: 28 }
+                  }}
                   key={s.id}
-                  className="group relative flex flex-col bg-white border border-slate-200/85 hover:border-fiverr/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-fiverr/5 transition-all duration-300 hover:-translate-y-1.5"
+                  className="group relative flex flex-col bg-white border border-slate-200/85 hover:border-fiverr/30 rounded-2xl overflow-hidden shadow-sm transition-all duration-300"
                 >
                   {/* Glowing top line accent on group hover */}
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-fiverr/0 via-fiverr to-teal-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                   {/* Verified Fiverr badge Tag */}
-                  <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-fiverr/15 border border-fiverr/20 text-fiverr text-[10px] font-black uppercase tracking-wider">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-fiverr/15 border border-fiverr/20 text-fiverr text-[10px] font-black uppercase tracking-wider select-none"
+                  >
                     <ShieldCheck className="w-3 h-3" />
                     Fiverr Verified
-                  </div>
+                  </motion.div>
 
                   <div className="p-6 pb-4 flex-1">
                     {/* Brand Face & Info */}
@@ -175,12 +190,13 @@ export default function CategoryPage({
                     {/* Skill Tags */}
                     <div className="flex flex-wrap gap-1.5 mb-5">
                       {s.skills.slice(0, 4).map((skill, index) => (
-                        <span
+                        <motion.span
+                          whileHover={{ scale: 1.05, backgroundColor: "#f1f5f9" }}
                           key={index}
-                          className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-605 text-slate-600 text-[10px] font-bold tracking-tight"
+                          className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-655 text-slate-600 text-[10px] font-bold tracking-tight cursor-default"
                         >
                           {skill}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
 
@@ -219,7 +235,9 @@ export default function CategoryPage({
                         ${s.price || '40'}
                       </span>
                     </div>
-                    <a
+                    <motion.a
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       href={s.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -228,7 +246,7 @@ export default function CategoryPage({
                     >
                       Order Now
                       <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                    </motion.a>
                   </div>
 
                   {/* Secret administrative trigger block */}

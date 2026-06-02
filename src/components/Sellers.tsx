@@ -108,60 +108,74 @@ export default function Sellers({
             </div>
           </div>
 
-          {/* Popular Keywords suggestions block */}
-          <div className="flex flex-wrap justify-center items-center gap-2 text-xs text-slate-400 mb-10 max-w-xl mx-auto">
-            <span className="font-bold text-slate-500 font-sans">Popular:</span>
-            {['WordPress', 'SEO', 'React', 'Shopify', 'Laravel', 'Logo', 'Figma'].map((chip) => (
-              <button
+        {/* Popular Keywords suggestions block */}
+        <div className="flex flex-wrap justify-center items-center gap-2 text-xs text-slate-400 mb-10 max-w-xl mx-auto">
+          <span className="font-bold text-slate-500 font-sans animate-none">Popular:</span>
+          {['WordPress', 'SEO', 'React', 'Shopify', 'Laravel', 'Logo', 'Figma'].map((chip) => {
+            const chipActive = searchQuery.toLowerCase() === chip.toLowerCase();
+            return (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 key={chip}
                 onClick={() => setSearchQuery(chip)}
-                className={`px-3 py-1 rounded-xl border border-slate-200 hover:border-slate-350 hover:text-fiverr text-[11px] font-bold bg-white text-slate-500 transition-all cursor-pointer shadow-sm ${
-                  searchQuery.toLowerCase() === chip.toLowerCase() ? 'text-fiverr border-fiverr/40 bg-fiverr/10' : ''
+                className={`px-3 py-1 rounded-xl border border-slate-200 hover:text-fiverr text-[11px] font-bold bg-white text-slate-500 transition-all cursor-pointer shadow-sm ${
+                  chipActive ? 'text-fiverr border-fiverr/40 bg-fiverr/10 shadow-inner' : ''
                 }`}
               >
                 {chip}
-              </button>
-            ))}
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="text-[10px] text-rose-500 font-extrabold underline hover:text-rose-600 ml-1.5 cursor-pointer"
-              >
-                Reset Filter
-              </button>
-            )}
-          </div>
+              </motion.button>
+            );
+          })}
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="text-[10px] text-rose-500 font-extrabold underline hover:text-rose-600 ml-1.5 cursor-pointer"
+            >
+              Reset Filter
+            </button>
+          )}
         </div>
+      </div>
 
-        {/* Dynamic Category Selector Bar (Clicking opens separate category page, 'all' keeps Home view) */}
-        <div className="mb-14 max-w-5xl mx-auto">
-          <span className="block text-[10px] text-center font-black uppercase text-slate-450 tracking-wider mb-4">
-            Navigate to Separate Showcase Pages
-          </span>
-          <div className="flex flex-wrap justify-center gap-2.5">
-            {categories.map((cat) => {
-              const isActive = selectedCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => onSelectCategory(cat.id)}
-                  className={`px-4.5 py-3 rounded-2xl text-xs sm:text-sm font-black tracking-tight transition-all duration-200 cursor-pointer shadow-sm ${
-                    isActive
-                      ? 'bg-fiverr text-white shadow-lg shadow-fiverr/15 font-black'
-                      : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:bg-slate-50 hover:border-fiverr/30'
-                  }`}
-                >
+      {/* Dynamic Category Selector Bar (Clicking opens separate category page, 'all' keeps Home view) */}
+      <div className="mb-14 max-w-5xl mx-auto relative">
+        <span className="block text-[10px] text-center font-black uppercase text-slate-400 tracking-wider mb-4">
+          Navigate to Separate Showcase Pages
+        </span>
+        <div className="flex flex-wrap justify-center gap-2.5">
+          {categories.map((cat) => {
+            const isActive = selectedCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => onSelectCategory(cat.id)}
+                className={`relative px-5 py-3 rounded-2xl text-xs sm:text-sm font-black tracking-tight transition-all duration-300 cursor-pointer shadow-sm z-10 overflow-hidden ${
+                  isActive
+                    ? 'text-white font-black'
+                    : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-fiverr/30'
+                }`}
+              >
+                <span className="relative z-10">
                   {cat.label}
                   {cat.id !== 'all' && (
                     <span className={`ml-1.5 text-[10px] font-mono ${isActive ? 'text-emerald-100' : 'text-slate-400'}`}>
                       ({sellers.filter(s => s.cat === cat.id).length})
                     </span>
                   )}
-                </button>
-              );
-            })}
-          </div>
+                </span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeCategoryPill"
+                    className="absolute inset-0 bg-fiverr -z-10 shadow-md shadow-fiverr/20 rounded-2xl"
+                    transition={{ type: "spring", stiffness: 360, damping: 28 }}
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
+      </div>
 
         {/* Catalog Grid Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -182,21 +196,35 @@ export default function Sellers({
                 return (
                   <motion.div
                     layout
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{ duration: 0.25 }}
+                    initial={{ opacity: 0, y: 30, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.97, y: -20 }}
+                    whileHover={{ 
+                      y: -8, 
+                      scale: 1.015,
+                      boxShadow: "0 20px 25px -5px rgba(36,182,75,0.08), 0 10px 10px -5px rgba(36,182,75,0.03)"
+                    }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 350, 
+                      damping: 26,
+                      layout: { type: "spring", stiffness: 350, damping: 28 }
+                    }}
                     key={s.id}
-                    className="group relative flex flex-col bg-white border border-slate-200/85 hover:border-fiverr/35 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-fiverr/5 transition-all duration-300 hover:-translate-y-1.5"
+                    className="group relative flex flex-col bg-white border border-slate-200/85 hover:border-fiverr/35 rounded-2xl overflow-hidden shadow-sm transition-all duration-300"
                   >
                     {/* Glowing top line accent on group hover */}
                     <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-fiverr/0 via-fiverr to-teal-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                     {/* Top Hand-picked overlay tag */}
-                    <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-fiverr/15 border border-fiverr/20 text-fiverr text-[10px] font-black uppercase tracking-wider animate-none">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-fiverr/15 border border-fiverr/20 text-fiverr text-[10px] font-black uppercase tracking-wider select-none"
+                    >
                       <ShieldCheck className="w-3 h-3" />
                       Fiverr Verified
-                    </div>
+                    </motion.div>
 
                     {/* Inside Card Header */}
                     <div className="p-6 pb-4 flex-1">
@@ -253,12 +281,13 @@ export default function Sellers({
                       {/* Skill Tags */}
                       <div className="flex flex-wrap gap-1.5 mb-5">
                         {s.skills.slice(0, 4).map((skill, index) => (
-                          <span
+                          <motion.span
+                            whileHover={{ scale: 1.05, backgroundColor: "#f1f5f9" }}
                             key={index}
-                            className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-605 text-slate-600 text-[10px] font-bold tracking-tight"
+                            className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-600 text-[10px] font-bold tracking-tight cursor-default"
                           >
                             {skill}
-                          </span>
+                          </motion.span>
                         ))}
                       </div>
 
@@ -297,7 +326,9 @@ export default function Sellers({
                           ${s.price || '40'}
                         </span>
                       </div>
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={s.link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -306,7 +337,7 @@ export default function Sellers({
                       >
                         Order Now
                         <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
+                      </motion.a>
                     </div>
 
                     {/* Administrative override settings */}

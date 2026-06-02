@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { DEFAULT_CATEGORIES, DEFAULT_SELLERS } from './data';
 import { Category, Seller } from './types';
 import { CheckCircle, AlertCircle, Info, X } from 'lucide-react';
@@ -321,29 +322,37 @@ export default function App() {
       />
 
       {/* 11. Custom Interactive Non-blocking Toast Alerts system */}
-      {toast && (
-        <div className="fixed top-24 right-6 z-[9999] max-w-sm bg-white/95 backdrop-blur border border-slate-200 rounded-2xl p-4 shadow-xl flex items-start gap-3 animate-none">
-          <div className="mt-0.5">
-            {toast.type === 'success' ? (
-              <CheckCircle className="w-5 h-5 text-fiverr font-bold" />
-            ) : toast.type === 'error' ? (
-              <AlertCircle className="w-5 h-5 text-rose-500 font-bold" />
-            ) : (
-              <Info className="w-5 h-5 text-sky-500 font-bold" />
-            )}
-          </div>
-          <div className="flex-1">
-            <p className="text-xs font-bold text-slate-800 tracking-wide text-left">{toast.message}</p>
-          </div>
-          <button
-            type="button"
-            onClick={() => setToast(null)}
-            className="text-slate-400 hover:text-slate-700 transition-colors p-0.5 cursor-pointer"
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -20 }}
+            transition={{ type: "spring", stiffness: 400, damping: 28 }}
+            className="fixed top-24 right-6 z-[9999] max-w-sm bg-white/95 backdrop-blur border border-slate-200 rounded-2xl p-4 shadow-xl flex items-start gap-3"
           >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-      )}
+            <div className="mt-0.5">
+              {toast.type === 'success' ? (
+                <CheckCircle className="w-5 h-5 text-fiverr font-bold" />
+              ) : toast.type === 'error' ? (
+                <AlertCircle className="w-5 h-5 text-rose-500 font-bold" />
+              ) : (
+                <Info className="w-5 h-5 text-sky-500 font-bold" />
+              )}
+            </div>
+            <div className="flex-1">
+              <p className="text-xs font-bold text-slate-800 tracking-wide text-left">{toast.message}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setToast(null)}
+              className="text-slate-400 hover:text-slate-700 transition-colors p-0.5 cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
