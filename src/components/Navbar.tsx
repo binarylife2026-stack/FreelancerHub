@@ -24,8 +24,8 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-900 shadow-lg shadow-slate-950/20 py-3'
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/85 shadow-sm py-3'
+          : 'bg-white/60 backdrop-blur-sm py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -35,26 +35,26 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
             e.preventDefault();
             if (onLogoClick) onLogoClick();
           }}
-          className="flex items-center gap-3.5 group text-left cursor-pointer transition-transform duration-300"
+          className="flex items-center gap-3.5 group text-left cursor-pointer transition-all duration-300 transform hover:scale-[1.02]"
           id="navbar-logo-btn"
         >
-          <div className="relative w-11 h-11 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center shadow-lg group-hover:border-emerald-500/40 transition-all duration-300 overflow-hidden">
-            {/* Spinning/pulsing neon background aura */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 via-teal-400/20 to-emerald-400/10 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+          <div className="relative w-11 h-11 rounded-2xl bg-white border border-slate-200/80 flex items-center justify-center shadow-sm group-hover:border-fiverr/50 transition-all duration-300 overflow-hidden">
+            {/* Pulsing neon background aura */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-fiverr/10 via-emerald-400/5 to-fiverr/10 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
             
             {/* Glowing particle effect in BG */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-2xl blur-md opacity-25 group-hover:opacity-50 transition-all duration-300" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-fiverr to-emerald-400 rounded-2xl blur-md opacity-20 group-hover:opacity-40 transition-all duration-300" />
             
-            <div className="relative w-8 h-8 rounded-xl bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800/80 flex items-center justify-center text-emerald-400 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] group-hover:text-emerald-300 transition-all">
+            <div className="relative w-8 h-8 rounded-xl bg-gradient-to-b from-white to-slate-50 border border-slate-100 flex items-center justify-center text-fiverr shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] group-hover:text-fiverr transition-all">
               <Sparkles className="w-4 h-4 animate-pulse" fill="currentColor" />
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-black tracking-tight text-white flex items-center gap-1 leading-none">
-              <span className="text-white">Freelancer</span>
-              <span className="text-emerald-400 italic font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.45)]">Hub</span>
+            <span className="text-xl font-black tracking-tight text-slate-900 flex items-center gap-1 leading-none font-sans">
+              <span>Freelancer</span>
+              <span className="text-fiverr italic font-black drop-shadow-[0_0_8px_rgba(36,182,75,0.35)]">Hub</span>
             </span>
-            <span className="text-[9px] font-mono font-black tracking-widest text-emerald-400 leading-none mt-1 uppercase">
+            <span className="text-[9px] font-mono font-extrabold tracking-widest text-fiverr leading-none mt-1 uppercase">
               Affiliate Directory
             </span>
           </div>
@@ -69,7 +69,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 document.getElementById('sellers')?.scrollIntoView({ behavior: 'smooth' });
               }, 50);
             }}
-            className="text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors bg-transparent border-0 cursor-pointer"
+            className="text-sm font-bold text-slate-700 hover:text-fiverr transition-colors bg-transparent border-0 cursor-pointer"
           >
             Find Sellers
           </button>
@@ -80,7 +80,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 document.getElementById('how')?.scrollIntoView({ behavior: 'smooth' });
               }, 50);
             }}
-            className="text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors bg-transparent border-0 cursor-pointer"
+            className="text-sm font-bold text-slate-700 hover:text-fiverr transition-colors bg-transparent border-0 cursor-pointer"
           >
             How It Works
           </button>
@@ -91,7 +91,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 document.getElementById('why')?.scrollIntoView({ behavior: 'smooth' });
               }, 50);
             }}
-            className="text-sm font-semibold text-slate-300 hover:text-emerald-400 transition-colors bg-transparent border-0 cursor-pointer"
+            className="text-sm font-bold text-slate-700 hover:text-fiverr transition-colors bg-transparent border-0 cursor-pointer"
           >
             Why Us
           </button>
@@ -99,7 +99,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
           {isAdmin ? (
             <button
               onClick={onLogout}
-              className="flex items-center gap-1.5 text-xs font-bold text-rose-400 hover:text-rose-350 bg-rose-500/10 border border-rose-500/20 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-bold text-rose-500 hover:text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
             >
               <LogOut className="w-3.5 h-3.5" />
               Log Out
@@ -113,7 +113,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 document.getElementById('sellers')?.scrollIntoView({ behavior: 'smooth' });
               }, 50);
             }}
-            className="bg-emerald-500 hover:bg-emerald-400 font-bold text-sm text-slate-950 px-5 py-2.5 rounded-xl transition-all duration-300 shadow-md shadow-emerald-500/20 hover:shadow-emerald-500/30 hover:-translate-y-0.5 border-0 cursor-pointer"
+            className="bg-fiverr hover:bg-fiverr-dark font-black text-sm text-white px-5.5 py-2.5 rounded-xl transition-all duration-300 shadow-md shadow-fiverr/10 hover:shadow-fiverr/30 hover:-translate-y-0.5 border-0 cursor-pointer"
           >
             Hire Now 🚀
           </button>
@@ -123,7 +123,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
         <div className="flex md:hidden items-center gap-3">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg transition-colors"
+            className="p-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -133,7 +133,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="absolute top-16 left-0 w-full bg-slate-950 border-b border-slate-900 p-6 flex flex-col gap-4 shadow-xl md:hidden">
+        <div className="absolute top-16 left-0 w-full bg-white border-b border-slate-200 p-6 flex flex-col gap-4 shadow-xl md:hidden animate-in fade-in slide-in-from-top-2 duration-200">
           <button
             onClick={() => {
               setMobileOpen(false);
@@ -142,7 +142,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 document.getElementById('sellers')?.scrollIntoView({ behavior: 'smooth' });
               }, 50);
             }}
-            className="text-left py-2 text-base font-semibold text-slate-300 hover:text-emerald-400 transition-colors border-b border-slate-900/50 bg-transparent border-0 cursor-pointer"
+            className="text-left py-2 text-base font-bold text-slate-750 hover:text-fiverr transition-colors border-b border-slate-100 bg-transparent border-0 cursor-pointer"
           >
             Find Sellers
           </button>
@@ -154,7 +154,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 document.getElementById('how')?.scrollIntoView({ behavior: 'smooth' });
               }, 50);
             }}
-            className="text-left py-2 text-base font-semibold text-slate-300 hover:text-emerald-400 transition-colors border-b border-slate-900/50 bg-transparent border-0 cursor-pointer"
+            className="text-left py-2 text-base font-bold text-slate-750 hover:text-fiverr transition-colors border-b border-slate-100 bg-transparent border-0 cursor-pointer"
           >
             How It Works
           </button>
@@ -166,7 +166,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 document.getElementById('why')?.scrollIntoView({ behavior: 'smooth' });
               }, 50);
             }}
-            className="text-left py-2 text-base font-semibold text-slate-300 hover:text-emerald-400 transition-colors border-b border-slate-900/50 bg-transparent border-0 cursor-pointer"
+            className="text-left py-2 text-base font-bold text-slate-750 hover:text-fiverr transition-colors border-b border-slate-100 bg-transparent border-0 cursor-pointer"
           >
             Why Us
           </button>
@@ -177,7 +177,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 onLogout();
                 setMobileOpen(false);
               }}
-              className="flex items-center justify-center gap-1.5 w-full text-sm font-bold text-rose-400 bg-rose-500/10 border border-rose-500/20 py-2.5 rounded-xl transition-colors cursor-pointer"
+              className="flex items-center justify-center gap-1.5 w-full text-sm font-bold text-rose-500 bg-rose-50 border border-rose-200 py-2.5 rounded-xl transition-colors cursor-pointer"
             >
               <LogOut className="w-4 h-4" />
               Log Out Session
@@ -192,7 +192,7 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
                 document.getElementById('sellers')?.scrollIntoView({ behavior: 'smooth' });
               }, 50);
             }}
-            className="bg-emerald-500 text-slate-950 text-center font-bold text-sm py-3 rounded-xl shadow-md shadow-emerald-500/20 border-0 cursor-pointer"
+            className="bg-fiverr text-white text-center font-extrabold text-sm py-3 rounded-xl shadow-md shadow-fiverr/20 border-0 cursor-pointer"
           >
             Hire Now 🚀
           </button>

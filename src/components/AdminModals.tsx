@@ -276,18 +276,18 @@ export default function AdminModals({
     <>
       {/* 1. AUTH LOGIN DIALOG MODAL */}
       {isLoginOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-none">
-          <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl relative">
-            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-emerald-500 to-teal-500" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md animate-none">
+          <div className="w-full max-w-md bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xl relative">
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-fiverr to-teal-400" />
             
             {/* Modal Header */}
-            <div className="p-6 border-b border-slate-800 flex justify-between items-center">
-              <div className="flex items-center gap-2 text-emerald-400 font-extrabold text-xs uppercase tracking-wider">
+            <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+              <div className="flex items-center gap-2 text-fiverr font-extrabold text-xs uppercase tracking-wider">
                 <KeyRound className="w-4 h-4" /> Operator ID Session Gate
               </div>
               <button
                 onClick={onCloseLogin}
-                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
+                className="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -306,7 +306,7 @@ export default function AdminModals({
                   value={operatorId}
                   onChange={(e) => setOperatorId(e.target.value)}
                   placeholder="e.g. admin"
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-all font-mono"
+                  className="w-full bg-white border border-slate-250 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all font-mono shadow-sm"
                 />
               </div>
 
@@ -320,26 +320,26 @@ export default function AdminModals({
                   value={passphrase}
                   onChange={(e) => setPassphrase(e.target.value)}
                   placeholder="e.g. sahs2026"
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-all pr-12 font-mono"
+                  className="w-full bg-white border border-slate-250 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all pr-12 font-mono shadow-sm"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPass(!showPass)}
-                  className="absolute bottom-3 right-4 text-slate-500 hover:text-slate-300 transition-colors"
+                  className="absolute bottom-3 right-4 text-slate-400 hover:text-slate-600 transition-colors"
                 >
                   {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
 
               {loginError && (
-                <div className="text-[11px] font-bold text-rose-400 bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl font-mono">
+                <div className="text-[11px] font-bold text-rose-600 bg-rose-50 border border-rose-150 p-3 rounded-xl font-mono">
                   {loginError}
                 </div>
               )}
 
               <button
                 type="submit"
-                className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 mt-2 flex items-center justify-center gap-1 cursor-pointer"
+                className="w-full bg-fiverr hover:bg-fiverr-dark text-white font-black text-sm py-4 rounded-xl transition-all shadow-lg shadow-fiverr/15 mt-2 flex items-center justify-center gap-1 cursor-pointer"
               >
                 Validate Session Terminal
               </button>
@@ -350,21 +350,21 @@ export default function AdminModals({
 
       {/* 2. CENTRAL SYSTEM CORE MANAGEMENT DASHBOARD */}
       {isAdminPanelOpen && isAdmin && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/85 backdrop-blur-md">
-          <div className="w-full max-w-5xl xl:max-w-6xl bg-slate-900 border border-slate-850 rounded-3xl overflow-hidden shadow-2xl relative max-h-[96vh] sm:max-h-[92vh] flex flex-col">
-            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-amber-500 to-amber-600" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-md">
+          <div className="w-full max-w-5xl xl:max-w-6xl bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl relative max-h-[96vh] sm:max-h-[92vh] flex flex-col animate-none">
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-fiverr to-teal-400" />
             
              {/* Modal Header */}
-            <div className="p-4 sm:p-6 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900">
+            <div className="p-4 sm:p-6 border-b border-slate-150 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-50/50">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-fiverr/10 border border-fiverr/20 flex items-center justify-center text-fiverr shadow-sm">
                   <ShieldAlert className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-black text-white tracking-tight">
+                  <h3 className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
                     Central Management Core
                   </h3>
-                  <span className="text-[9px] sm:text-[10px] text-slate-400 font-extrabold uppercase tracking-widest block">
+                  <span className="text-[9px] sm:text-[10px] text-slate-500 font-extrabold uppercase tracking-widest block">
                     Administrative Control Terminal
                   </span>
                 </div>
@@ -377,10 +377,10 @@ export default function AdminModals({
                       onLogout();
                     }
                   }}
-                  className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-rose-450 hover:text-rose-350 bg-rose-500/10 border border-rose-500/20 hover:bg-rose-500/15 rounded-xl transition-all cursor-pointer shadow-sm"
+                  className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-rose-600 hover:text-rose-700 bg-rose-50 border border-rose-100 rounded-xl transition-all cursor-pointer shadow-sm"
                   title="Terminate operating licensing session completely"
                 >
-                  <LogOut className="w-3.5 h-3.5 text-rose-450" />
+                  <LogOut className="w-3.5 h-3.5 text-rose-600" />
                   Log Out Session
                 </button>
                 <button
@@ -389,7 +389,7 @@ export default function AdminModals({
                     resetSellerForm();
                     onCancelEdit();
                   }}
-                  className="text-slate-400 hover:text-white p-2 rounded-xl bg-slate-950/50 hover:bg-slate-800 transition-all cursor-pointer border border-slate-850"
+                  className="text-slate-400 hover:text-slate-700 p-2 rounded-xl bg-white hover:bg-slate-50 transition-all cursor-pointer border border-slate-200 shadow-sm"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -397,52 +397,52 @@ export default function AdminModals({
             </div>
 
             {/* Core Statistics counter cards - Top dashboard bar */}
-            <div className="px-4 py-3 sm:px-6 sm:py-4 bg-slate-950/30 border-b border-slate-850 grid grid-cols-2 md:grid-cols-5 gap-3">
-              <div className="bg-slate-950/60 p-2.5 sm:p-3 rounded-xl border border-slate-850 text-center flex flex-col justify-center min-w-0">
-                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate">Total Experts</span>
-                <span className="text-sm sm:text-base font-black text-emerald-400">{sellers.length}</span>
+            <div className="px-4 py-3 sm:px-6 sm:py-4 bg-slate-50 border-b border-slate-150 grid grid-cols-2 md:grid-cols-5 gap-3">
+              <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 text-center flex flex-col justify-center min-w-0 shadow-sm">
+                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate animate-none">Total Experts</span>
+                <span className="text-sm sm:text-base font-black text-fiverr">{sellers.length}</span>
               </div>
-              <div className="bg-slate-950/60 p-2.5 sm:p-3 rounded-xl border border-slate-850 text-center flex flex-col justify-center min-w-0">
-                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate">Avg Rating</span>
-                <span className="text-sm sm:text-base font-black text-amber-400 flex items-center justify-center gap-1">
+              <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 text-center flex flex-col justify-center min-w-0 shadow-sm">
+                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate animate-none">Avg Rating</span>
+                <span className="text-sm sm:text-base font-black text-amber-500 flex items-center justify-center gap-1">
                   <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500 shrink-0" /> {avgRatingScore}
                 </span>
               </div>
-              <div className="bg-slate-950/60 p-2.5 sm:p-3 rounded-xl border border-slate-850 text-center flex flex-col justify-center min-w-0">
-                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate">Avg Price</span>
-                <span className="text-sm sm:text-base font-black text-rose-450">${avgPriceMarket}</span>
+              <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 text-center flex flex-col justify-center min-w-0 shadow-sm">
+                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate animate-none">Avg Price</span>
+                <span className="text-sm sm:text-base font-black text-slate-900">${avgPriceMarket}</span>
               </div>
-              <div className="bg-slate-950/60 p-2.5 sm:p-3 rounded-xl border border-slate-850 text-center flex flex-col justify-center min-w-0">
-                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate">Total Clicks</span>
-                <span className="text-sm sm:text-base font-black text-blue-400">{totalClicksScore}</span>
+              <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 text-center flex flex-col justify-center min-w-0 shadow-sm">
+                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate animate-none">Total Clicks</span>
+                <span className="text-sm sm:text-base font-black text-sky-500">{totalClicksScore}</span>
               </div>
-              <div className="bg-slate-950/60 p-2.5 sm:p-3 rounded-xl border border-slate-850 text-center col-span-2 md:col-span-1 flex flex-col justify-center min-w-0">
-                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate">Click Leader</span>
-                <span className="text-xs sm:text-sm font-black text-white truncate max-w-full block" title={topClickLeader?.name || 'N/A'}>
+              <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 text-center col-span-2 md:col-span-1 flex flex-col justify-center min-w-0 shadow-sm">
+                <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider block truncate animate-none">Click Leader</span>
+                <span className="text-xs sm:text-sm font-black text-slate-800 truncate max-w-full block" title={topClickLeader?.name || 'N/A'}>
                   {topClickLeader ? topClickLeader.name : 'None'}
                 </span>
               </div>
             </div>
 
             {/* Backups & Actions Row */}
-            <div className="px-4 py-2.5 sm:px-6 sm:py-3 bg-slate-900/50 border-b border-slate-850 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
-              <span className="text-[10px] text-slate-400 font-black uppercase tracking-wider">
+            <div className="px-4 py-2.5 sm:px-6 sm:py-3 bg-slate-100/30 border-b border-slate-150 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+              <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider animate-none">
                 System Commands
               </span>
               <div className="flex flex-wrap items-center gap-2">
                 <button
                   onClick={handleExportData}
-                  className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-white bg-slate-950/65 border border-slate-800 hover:border-slate-700 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 text-xs text-slate-700 hover:text-slate-950 bg-white border border-slate-200 hover:bg-slate-50 px-3 py-1.5 rounded-lg transition-colors cursor-pointer shadow-sm animate-none"
                   title="Export database rows as backup json document"
                 >
-                  <Download className="w-3.5 h-3.5 text-emerald-400" />
+                  <Download className="w-3.5 h-3.5 text-fiverr" />
                   Export JSON
                 </button>
                 <label
-                  className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-white bg-slate-950/65 border border-slate-800 hover:border-slate-700 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 text-xs text-slate-700 hover:text-slate-950 bg-white border border-slate-200 hover:bg-slate-50 px-3 py-1.5 rounded-lg transition-colors cursor-pointer shadow-sm animate-none"
                   title="Restore or import custom setup dataset"
                 >
-                  <Upload className="w-3.5 h-3.5 text-blue-400" />
+                  <Upload className="w-3.5 h-3.5 text-sky-500" />
                   Import JSON
                   <input
                     type="file"
@@ -453,7 +453,7 @@ export default function AdminModals({
                 </label>
                 <button
                   onClick={handleResetData}
-                  className="flex items-center gap-1.5 text-xs text-rose-450 hover:text-rose-350 bg-rose-500/5 border border-rose-500/20 hover:border-rose-500/30 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 text-xs text-rose-600 hover:text-rose-700 bg-rose-50 border border-rose-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer shadow-sm animate-none"
                   title="Purge custom logs and reset default directories list"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
@@ -466,8 +466,8 @@ export default function AdminModals({
             <div className="flex-1 flex flex-col md:flex-row-reverse overflow-hidden min-h-0">
               
               {/* Controls Tabs Sidebar (Right section on desktop, Top section on mobile) */}
-              <div className="w-full md:w-80 border-b md:border-b-0 md:border-l border-slate-850 bg-slate-950/40 p-4 shrink-0 flex flex-col gap-2">
-                <span className="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest mb-1 hidden md:block">
+              <div className="w-full md:w-80 border-b md:border-b-0 md:border-l border-slate-150 bg-slate-50/50 p-4 shrink-0 flex flex-col gap-2">
+                <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mb-1 hidden md:block animate-none">
                   Control Navigation Panel
                 </span>
                 <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible gap-2 pb-1.5 md:pb-0 scrollbar-none scroll-smooth">
@@ -478,8 +478,8 @@ export default function AdminModals({
                     }}
                     className={`flex items-center gap-2.5 py-3 px-4 text-xs font-black uppercase tracking-wider rounded-xl transition-all border outline-none cursor-pointer shrink-0 md:w-full text-left whitespace-nowrap ${
                       activeTab === 'manage-experts'
-                        ? 'bg-amber-500/15 text-amber-300 border-amber-500/35 shadow-[0_0_12px_rgba(245,158,11,0.06)]'
-                        : 'bg-slate-950/40 border-slate-850/60 text-slate-400 hover:text-slate-100 hover:bg-slate-900/40 hover:border-slate-800'
+                        ? 'bg-fiverr/10 text-fiverr-dark border-fiverr/35 shadow-[0_0_12px_rgba(29,191,115,0.06)]'
+                        : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                     }`}
                   >
                     <span className="text-sm">📝</span>
@@ -492,8 +492,8 @@ export default function AdminModals({
                     }}
                     className={`flex items-center gap-2.5 py-3 px-4 text-xs font-black uppercase tracking-wider rounded-xl transition-all border outline-none cursor-pointer shrink-0 md:w-full text-left whitespace-nowrap ${
                       activeTab === 'add-expert'
-                        ? 'bg-amber-500/15 text-amber-300 border-amber-500/35 shadow-[0_0_12px_rgba(245,158,11,0.06)]'
-                        : 'bg-slate-950/40 border-slate-850/60 text-slate-400 hover:text-slate-100 hover:bg-slate-900/40 hover:border-slate-800'
+                        ? 'bg-fiverr/10 text-fiverr-dark border-fiverr/35 shadow-[0_0_12px_rgba(29,191,115,0.06)]'
+                        : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                     }`}
                   >
                     <span className="text-sm">{editingSeller ? '✏️' : '➕'}</span>
@@ -506,8 +506,8 @@ export default function AdminModals({
                     }}
                     className={`flex items-center gap-2.5 py-3 px-4 text-xs font-black uppercase tracking-wider rounded-xl transition-all border outline-none cursor-pointer shrink-0 md:w-full text-left whitespace-nowrap ${
                       activeTab === 'categories'
-                        ? 'bg-amber-500/15 text-amber-300 border-amber-500/35 shadow-[0_0_12px_rgba(245,158,11,0.06)]'
-                        : 'bg-slate-950/40 border-slate-850/60 text-slate-400 hover:text-slate-100 hover:bg-slate-900/40 hover:border-slate-800'
+                        ? 'bg-fiverr/10 text-fiverr-dark border-fiverr/35 shadow-[0_0_12px_rgba(29,191,115,0.06)]'
+                        : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                     }`}
                   >
                     <span className="text-sm">📁</span>
@@ -520,8 +520,8 @@ export default function AdminModals({
                     }}
                     className={`flex items-center gap-2.5 py-3 px-4 text-xs font-black uppercase tracking-wider rounded-xl transition-all border outline-none cursor-pointer shrink-0 md:w-full text-left whitespace-nowrap ${
                       activeTab === 'analytics'
-                        ? 'bg-amber-500/15 text-amber-300 border-amber-500/35 shadow-[0_0_12px_rgba(245,158,11,0.06)]'
-                        : 'bg-slate-950/40 border-slate-850/60 text-slate-400 hover:text-slate-100 hover:bg-slate-900/40 hover:border-slate-800'
+                        ? 'bg-fiverr/10 text-fiverr-dark border-fiverr/35 shadow-[0_0_12px_rgba(29,191,115,0.06)]'
+                        : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                     }`}
                   >
                     <span className="text-sm">📊</span>
@@ -531,32 +531,32 @@ export default function AdminModals({
               </div>
 
               {/* Modal Body Scroll Area */}
-              <div className="p-4 sm:p-6 overflow-y-auto flex-1 bg-slate-950/10 min-h-0">
+              <div className="p-4 sm:p-6 overflow-y-auto flex-1 bg-slate-50/30 min-h-0">
 
               {/* TABS VIEW 1: MANAGE EXPERTS TABLE */}
               {activeTab === 'manage-experts' && (
                 <div className="flex flex-col gap-4">
                   {/* Search and Table filter headers */}
                   <div className="relative">
-                    <Search className="absolute left-4 top-3.5 w-4 h-4 text-slate-500" />
+                    <Search className="absolute left-4 top-3.5 w-4 h-4 text-slate-400" />
                     <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search experts catalog by full name, title skills or cat..."
-                      className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-11 pr-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-amber-500 transition-all"
+                      className="w-full bg-white border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all shadow-sm"
                     />
                   </div>
 
                   {filteredSellers.length === 0 ? (
-                    <div className="py-14 text-center border border-dashed border-slate-800 rounded-2xl bg-slate-950/20 text-slate-500 font-semibold text-xs">
+                    <div className="py-14 text-center border border-dashed border-slate-200 rounded-2xl bg-white text-slate-500 font-semibold text-xs">
                       No registered experts match search criteria.
                     </div>
                   ) : (
-                    <div className="overflow-x-auto bg-slate-950 border border-slate-850 rounded-2xl">
+                    <div className="overflow-x-auto bg-white border border-slate-200 rounded-2xl shadow-sm animate-none">
                       <table className="w-full text-left text-xs sm:text-sm border-collapse">
                         <thead>
-                          <tr className="bg-slate-900/70 border-b border-slate-850 text-[10px] font-black uppercase tracking-wider text-slate-400 whitespace-nowrap">
+                          <tr className="bg-slate-50 border-b border-slate-200 text-[10px] font-black uppercase tracking-wider text-slate-505 text-slate-500 whitespace-nowrap">
                             <th className="px-4 py-3 sm:px-5 sm:py-4">Profile</th>
                             <th className="px-4 py-3 sm:px-5 sm:py-4">Sector Category</th>
                             <th className="px-4 py-3 sm:px-5 sm:py-4 text-center">Clicks Tracker</th>
@@ -565,27 +565,27 @@ export default function AdminModals({
                             <th className="px-4 py-3 sm:px-5 sm:py-4 text-right">Interventions</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-900 font-medium whitespace-nowrap">
+                        <tbody className="divide-y divide-slate-100 font-medium whitespace-nowrap">
                           {filteredSellers.map(s => {
                             const catLabel = categories.find(c => c.id === s.cat)?.label || s.cat;
                             const isTop = s.level === 'level-top';
 
                             return (
-                              <tr key={s.id} className="hover:bg-slate-900/40 transition-colors">
+                              <tr key={s.id} className="hover:bg-slate-50/55 hover:bg-slate-50/60 transition-colors">
                                 <td className="px-4 py-3.5 sm:px-5 sm:py-4">
                                   <div className="flex items-center gap-3">
                                     <img
                                       src={s.img}
                                       alt={s.name}
-                                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg object-cover border border-slate-800 shrink-0"
+                                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg object-cover border border-slate-100 shrink-0"
                                     />
                                     <div className="flex flex-col min-w-0">
-                                      <span className="font-bold text-slate-200 truncate max-w-[140px] sm:max-w-[200px]">{s.name}</span>
+                                      <span className="font-bold text-slate-800 truncate max-w-[140px] sm:max-w-[200px]">{s.name}</span>
                                       <span
                                         className={`text-[8px] font-extrabold px-1.5 py-0.5 rounded-full uppercase tracking-wider w-fit mt-0.5 shrink-0 ${
                                           isTop
-                                            ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                                            : 'bg-cyan-500/10 text-cyan-405 border border-cyan-500/25'
+                                            ? 'bg-amber-500/10 text-amber-600 border border-amber-500/25'
+                                            : 'bg-[#e0f2fe] text-sky-600 border border-sky-505 border-sky-500/25'
                                         }`}
                                       >
                                         {isTop ? 'Top Rated' : 'Level 2'}
@@ -593,21 +593,21 @@ export default function AdminModals({
                                     </div>
                                   </div>
                                 </td>
-                                <td className="px-4 py-3.5 sm:px-5 pr-6 sm:py-4 text-slate-300">
-                                  <span className="font-bold text-slate-350">{catLabel}</span>
+                                <td className="px-4 py-3.5 sm:px-5 pr-6 sm:py-4 text-slate-500">
+                                  <span className="font-bold text-slate-600">{catLabel}</span>
                                 </td>
                                 <td className="px-4 py-3.5 sm:px-5 sm:py-4 text-center font-bold">
-                                  <div className="inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2.5 py-1 rounded-lg text-xs font-black font-mono">
+                                  <div className="inline-flex items-center gap-1 bg-fiverr/10 border border-fiverr/20 text-fiverr px-2.5 py-1 rounded-lg text-xs font-black font-mono">
                                     <MousePointerClick className="w-3.5 h-3.5" /> {s.clicks || 0}
                                   </div>
                                 </td>
-                                <td className="px-4 py-3.5 sm:px-5 sm:py-4 text-slate-300">
+                                <td className="px-4 py-3.5 sm:px-5 sm:py-4 text-slate-500">
                                   <div className="flex items-center gap-1 font-semibold">
                                     <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500 shrink-0" />
                                     <span>{s.rating} <span className="text-slate-400">({s.reviews})</span></span>
                                   </div>
                                 </td>
-                                <td className="px-4 py-3.5 sm:px-5 sm:py-4 text-rose-455 font-black font-mono">
+                                <td className="px-4 py-3.5 sm:px-5 sm:py-4 text-slate-900 font-extrabold font-mono">
                                   ${s.price}
                                 </td>
                                 <td className="px-4 py-3.5 sm:px-5 sm:py-4 text-right">
@@ -616,14 +616,14 @@ export default function AdminModals({
                                       onClick={() => {
                                         onEditSeller(s);
                                       }}
-                                      className="p-2 text-cyan-400 hover:text-white bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-lg transition-all cursor-pointer"
+                                      className="p-2 text-fiverr hover:text-white bg-white hover:bg-fiverr border border-slate-200 hover:border-fiverr rounded-lg transition-all cursor-pointer shadow-sm"
                                       title="Edit licensed settings configuration profile"
                                     >
                                       <Edit2 className="w-4 h-4" />
                                     </button>
                                     <button
                                       onClick={() => onDeleteSeller(s.id)}
-                                      className="p-2 text-rose-450 hover:text-white bg-rose-500/5 hover:bg-rose-500/15 border border-rose-500/10 hover:border-rose-500/25 rounded-lg transition-all cursor-pointer"
+                                      className="p-2 text-rose-650 text-rose-600 hover:text-white bg-white hover:bg-rose-500 border border-slate-200 hover:border-rose-500 rounded-lg transition-all cursor-pointer shadow-sm"
                                       title="Delete seller profile configuration from catalog index"
                                     >
                                       <Trash2 className="w-4 h-4" />
@@ -642,13 +642,13 @@ export default function AdminModals({
 
               {/* TABS VIEW 2: REGISTER/EDIT EXPERT FORM */}
               {activeTab === 'add-expert' && (
-                <form onSubmit={handleSellerFormSubmit} className="flex flex-col gap-5">
-                  <div className="flex items-center justify-between border-b border-slate-850 pb-2 mb-2">
-                    <h4 className="text-white text-xs font-black uppercase tracking-wider">
+                <form onSubmit={handleSellerFormSubmit} className="flex flex-col gap-5 text-left">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-2 mb-2 animate-none">
+                    <h4 className="text-slate-900 text-xs font-black uppercase tracking-wider">
                       {editingSeller ? '✏️ Edit Licensed Professional' : '➕ Register Service Professional'}
                     </h4>
                     {editingSeller && (
-                      <span className="text-[10px] text-amber-400 font-extrabold uppercase bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20 animate-pulse">
+                      <span className="text-[10px] text-amber-600 font-extrabold uppercase bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20 animate-pulse">
                         Active Editing session Loaded
                       </span>
                     )}
@@ -656,7 +656,7 @@ export default function AdminModals({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Freelancer Full Name
                       </label>
                       <input
@@ -665,18 +665,18 @@ export default function AdminModals({
                         value={sName}
                         onChange={(e) => setSName(e.target.value)}
                         placeholder="e.g. Arif Hasan"
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-700 focus:outline-none focus:border-amber-500 transition-all font-mono"
+                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all font-mono shadow-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Performance Tier Status
                       </label>
                       <select
                         value={sLevel}
                         onChange={(e) => setSLevel(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-400 focus:outline-none focus:border-amber-500 transition-all focus:text-slate-100 font-semibold"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-fiverr transition-all font-semibold shadow-sm"
                       >
                         <option value="level-2">Level 2 Seller Badge</option>
                         <option value="level-top">Top Rated Elite Badging</option>
@@ -686,14 +686,14 @@ export default function AdminModals({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Visual Segment Category ID
                       </label>
                       <select
                         required
                         value={sCat}
                         onChange={(e) => setSCat(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-400 focus:outline-none focus:border-amber-500 transition-all focus:text-slate-100 font-semibold"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-700 focus:outline-none focus:border-fiverr transition-all font-semibold shadow-sm"
                       >
                         {categories
                           .filter(c => c.id !== 'all')
@@ -706,7 +706,7 @@ export default function AdminModals({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Pro Avatar Image Asset URL
                       </label>
                       <input
@@ -715,13 +715,13 @@ export default function AdminModals({
                         value={sImg}
                         onChange={(e) => setSImg(e.target.value)}
                         placeholder="https://images.unsplash.com/..."
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-700 focus:outline-none focus:border-amber-500 transition-all font-mono text-xs"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all font-mono text-xs shadow-sm"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                    <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                       Fiverr Gig Sales Statement (Title)
                     </label>
                     <input
@@ -730,12 +730,12 @@ export default function AdminModals({
                       value={sTitle}
                       onChange={(e) => setSTitle(e.target.value)}
                       placeholder="I will design a modern, responsive website for your business"
-                      className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-700 focus:outline-none focus:border-amber-500 transition-all"
+                      className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all shadow-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                    <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                       Brief Professional Biography Statement
                     </label>
                     <textarea
@@ -743,12 +743,12 @@ export default function AdminModals({
                       value={sDesc}
                       onChange={(e) => setSDesc(e.target.value)}
                       placeholder="Describe core specialized services and years of performance SLA metrics..."
-                      className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-700 focus:outline-none focus:border-amber-500 transition-all h-20 resize-none"
+                      className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all h-20 resize-none shadow-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                    <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                       Skills & Technologies (Comma Separated)
                     </label>
                     <input
@@ -757,13 +757,13 @@ export default function AdminModals({
                       value={sSkills}
                       onChange={(e) => setSSkills(e.target.value)}
                       placeholder="React, Figma, NextJS, Tailwind font-mono"
-                      className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-700 focus:outline-none focus:border-amber-500 transition-all"
+                      className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all shadow-sm"
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Weighted Rating (e.g. 4.9)
                       </label>
                       <input
@@ -771,11 +771,11 @@ export default function AdminModals({
                         required
                         value={sRating}
                         onChange={(e) => setSRating(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-700 focus:outline-none focus:border-amber-500 transition-all font-mono"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all font-mono shadow-sm"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Total Verified Reviews Score
                       </label>
                       <input
@@ -783,14 +783,14 @@ export default function AdminModals({
                         required
                         value={sReviews}
                         onChange={(e) => setSReviews(Number(e.target.value))}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-all font-mono"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-fiverr transition-all font-mono shadow-sm"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5 animate-none">
                         Delivery Timeline Milestone SLA
                       </label>
                       <input
@@ -799,11 +799,11 @@ export default function AdminModals({
                         value={sDelivery}
                         onChange={(e) => setSDelivery(e.target.value)}
                         placeholder="3 Days Delivery"
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-all"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-fiverr transition-all shadow-sm"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Chat Response Latency SLA
                       </label>
                       <input
@@ -812,14 +812,14 @@ export default function AdminModals({
                         value={sResponse}
                         onChange={(e) => setSResponse(e.target.value)}
                         placeholder="1 Hour Response"
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-all"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-fiverr transition-all text-slate-800 shadow-sm"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Pricing Starting Target Value ($)
                       </label>
                       <input
@@ -827,11 +827,11 @@ export default function AdminModals({
                         required
                         value={sPrice}
                         onChange={(e) => setSPrice(Number(e.target.value))}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-all font-mono"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-fiverr transition-all font-mono shadow-sm"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">
+                      <label className="block text-[10px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                         Affiliate Fiverr gig destination URL
                       </label>
                       <input
@@ -840,7 +840,7 @@ export default function AdminModals({
                         value={sLink}
                         onChange={(e) => setSLink(e.target.value)}
                         placeholder="https://fiverr.com/..."
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-all text-xs font-mono"
+                        className="w-full bg-white border border-slate-205 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-fiverr transition-all text-xs font-mono shadow-sm"
                       />
                     </div>
                   </div>
@@ -854,7 +854,7 @@ export default function AdminModals({
                           resetSellerForm();
                           setActiveTab('manage-experts');
                         }}
-                        className="flex-1 bg-slate-900 hover:bg-slate-850 border border-slate-800 text-slate-300 font-bold py-3.5 rounded-xl transition-all cursor-pointer text-xs"
+                        className="flex-1 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-bold py-3.5 rounded-xl transition-all cursor-pointer text-xs shadow-sm"
                       >
                         Cancel Editing
                       </button>
@@ -865,14 +865,14 @@ export default function AdminModals({
                           resetSellerForm();
                           setActiveTab('manage-experts');
                         }}
-                        className="flex-1 bg-slate-900 hover:bg-slate-850 border border-slate-800 text-slate-400 hover:text-white font-bold py-3.5 rounded-xl transition-all cursor-pointer text-xs"
+                        className="flex-1 bg-white hover:bg-slate-50 border border-slate-250 border-slate-200 text-slate-500 hover:text-slate-800 font-bold py-3.5 rounded-xl transition-all cursor-pointer text-xs shadow-sm"
                       >
                         Back to List
                       </button>
                     )}
                     <button
                       type="submit"
-                      className="flex-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black py-3.5 rounded-xl transition-all shadow flex items-center justify-center gap-1.5 cursor-pointer text-xs"
+                      className="flex-3 bg-fiverr hover:bg-fiverr-dark text-white font-black py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer text-xs"
                     >
                       <CheckCircle className="w-5 h-5" />
                       Commit Expert Matrix Data
@@ -883,10 +883,10 @@ export default function AdminModals({
 
               {/* TABS VIEW 3: CONFIGURE CATEGORIES */}
               {activeTab === 'categories' && (
-                <div className="flex flex-col gap-6">
-                  <form onSubmit={handleCatFormSubmit} className="bg-slate-900/40 p-5 border border-slate-800 rounded-2xl flex flex-col gap-4 animate-none">
-                    <h4 className="text-white text-xs font-black uppercase tracking-wider flex items-center gap-1.5">
-                      <PlusCircle className="w-4 h-4 text-amber-500" /> Assemble Category Segment Node
+                <div className="flex flex-col gap-6 text-left">
+                  <form onSubmit={handleCatFormSubmit} className="bg-white p-5 border border-slate-200 rounded-2xl flex flex-col gap-4 animate-none shadow-sm">
+                    <h4 className="text-slate-900 text-xs font-black uppercase tracking-wider flex items-center gap-1.5 animate-none">
+                      <PlusCircle className="w-4 h-4 text-fiverr" /> Assemble Category Segment Node
                     </h4>
                     
                     <div>
@@ -899,7 +899,7 @@ export default function AdminModals({
                         value={catKey}
                         onChange={(e) => setCatKey(e.target.value)}
                         placeholder="e.g. uiux"
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-705 focus:outline-none focus:border-amber-500 transition-all font-mono"
+                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all font-mono"
                       />
                     </div>
 
@@ -913,31 +913,31 @@ export default function AdminModals({
                         value={catLabel}
                         onChange={(e) => setCatLabel(e.target.value)}
                         placeholder="e.g. UI/UX Custom Expert Solutions"
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-705 focus:outline-none focus:border-amber-500 transition-all font-semibold"
+                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-fiverr transition-all font-semibold"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs py-3.5 rounded-xl transition-all flex items-center justify-center gap-1.5 mt-2 cursor-pointer shadow"
+                      className="w-full bg-fiverr hover:bg-fiverr-dark text-white font-black text-xs py-3.5 rounded-xl transition-all flex items-center justify-center gap-1.5 mt-2 cursor-pointer shadow-md"
                     >
                       <Tag className="w-4 h-4" /> Deploy Dynamic Segment Block
                     </button>
                   </form>
 
                   <div>
-                    <h4 className="text-slate-400 text-xs font-black uppercase tracking-wider mb-3">
+                    <h4 className="text-slate-500 text-xs font-black uppercase tracking-wider mb-3">
                       Active Navigation Segment Nodes
                     </h4>
-                    <div className="max-h-[240px] overflow-y-auto bg-slate-950 border border-slate-850 rounded-2xl divide-y divide-slate-900/40 p-2">
+                    <div className="max-h-[240px] overflow-y-auto bg-white border border-slate-200 rounded-2xl divide-y divide-slate-100 p-2 shadow-sm">
                       {categories.map(c => (
                         <div
                           key={c.id}
                           className="flex items-center justify-between px-4 py-3.5 text-xs sm:text-sm"
                         >
                           <div className="flex flex-col">
-                            <span className="font-bold text-slate-100">{c.label}</span>
-                            <span className="text-[9px] font-mono text-slate-500">Key Code Index: {c.id}</span>
+                            <span className="font-bold text-slate-800">{c.label}</span>
+                            <span className="text-[9px] font-mono text-slate-400">Key Code Index: {c.id}</span>
                           </div>
                           {c.id !== 'all' ? (
                             <button
@@ -947,12 +947,12 @@ export default function AdminModals({
                                   onDeleteCategory(c.id);
                                 }
                               }}
-                              className="text-[10px] font-bold text-rose-450 hover:text-rose-300 bg-rose-500/5 hover:bg-rose-500/15 border border-rose-500/10 hover:border-rose-500/20 px-2.5 py-1.5 rounded-lg transition-colors flex items-center gap-1 cursor-pointer"
+                              className="text-[10px] font-bold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100/50 border border-rose-150 px-2.5 py-1.5 rounded-lg transition-colors flex items-center gap-1 cursor-pointer"
                             >
                               <UserMinus className="w-3.5 h-3.5" /> Remove Node
                             </button>
                           ) : (
-                            <span className="text-[9px] text-slate-600 font-extrabold uppercase tracking-wide bg-slate-900/60 border border-slate-850 px-2.5 py-1 rounded-lg">
+                            <span className="text-[9px] text-slate-550 text-slate-500 font-extrabold uppercase tracking-wide bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg">
                               Default Base Directory
                             </span>
                           )}
@@ -965,45 +965,45 @@ export default function AdminModals({
 
               {/* TABS VIEW 4: PERFORMANCE ANALYTICS SUMMARY */}
               {activeTab === 'analytics' && (
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-6 text-left">
                   {/* Analytic cards */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-slate-900/40 border border-slate-850 p-6 rounded-2xl text-center">
-                      <div className="inline-flex p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-2">
-                        <TrendingUp className="w-5 h-5" />
+                    <div className="bg-white border border-slate-205 p-6 rounded-2xl text-center shadow-sm">
+                      <div className="inline-flex p-3 rounded-xl bg-emerald-50 text-fiverr mb-2">
+                        <TrendingUp className="w-5 h-5 animate-none" />
                       </div>
                       <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block">Cumulative Clicks</span>
-                      <span className="text-3xl font-black text-white mt-1 block">{totalClicksScore} clicks</span>
+                      <span className="text-3xl font-black text-slate-900 mt-1 block">{totalClicksScore} clicks</span>
                     </div>
 
-                    <div className="bg-slate-900/40 border border-slate-850 p-6 rounded-2xl text-center">
-                      <div className="inline-flex p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-550 mb-2">
-                        <Award className="w-5 h-5" />
+                    <div className="bg-white border border-slate-205 p-6 rounded-2xl text-center shadow-sm">
+                      <div className="inline-flex p-3 rounded-xl bg-amber-50 text-amber-600 mb-2">
+                        <Award className="w-5 h-5 animate-none" />
                       </div>
                       <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block">Most Clicked Leader</span>
-                      <span className="text-xl font-black text-amber-400 mt-2 block truncate">
+                      <span className="text-xl font-black text-amber-700 mt-2 block truncate font-sans">
                         {topClickLeader ? topClickLeader.name : 'N/A'}
                       </span>
-                      <span className="text-[10px] text-slate-500 font-medium block mt-0.5">
+                      <span className="text-[10px] text-slate-500 font-medium block mt-0.5 animate-none">
                         {topClickLeader ? `${topClickLeader.clicks || 0} redirection clicks` : '0 clicks logged'}
                       </span>
                     </div>
 
-                    <div className="bg-slate-900/40 border border-slate-850 p-6 rounded-2xl text-center">
-                      <div className="inline-flex p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 mb-2">
-                        <MousePointerClick className="w-5 h-5" />
+                    <div className="bg-white border border-slate-205 p-6 rounded-2xl text-center shadow-sm">
+                      <div className="inline-flex p-3 rounded-xl bg-blue-50 text-blue-600 mb-2">
+                        <MousePointerClick className="w-5 h-5 animate-none" />
                       </div>
                       <span className="text-[10px] text-slate-500 font-black uppercase tracking-wider block">Catalog Ratio</span>
-                      <span className="text-3xl font-black text-white mt-1 block">
-                        {(totalClicksScore / Math.max(sellers.length, 1)).toFixed(1)} <span className="text-xs text-slate-500 font-medium">clicks/advocate</span>
+                      <span className="text-3xl font-black text-slate-900 mt-1 block">
+                        {(totalClicksScore / Math.max(sellers.length, 1)).toFixed(1)} <span className="text-xs text-slate-400 font-medium font-sans">clicks/advocate</span>
                       </span>
                     </div>
                   </div>
 
                   {/* Leaderboard Lists */}
-                  <div className="bg-slate-900/40 border border-slate-850 p-5 rounded-3xl animate-none">
-                    <h4 className="text-white text-xs font-black uppercase tracking-wider mb-4 flex items-center gap-1.5">
-                      <Star className="w-4 h-4 text-amber-500" /> Click Leaderboard Registry
+                  <div className="bg-white border border-slate-200 p-5 rounded-3xl animate-none shadow-sm text-left">
+                    <h4 className="text-slate-900 text-xs font-black uppercase tracking-wider mb-4 flex items-center gap-1.5 font-sans">
+                      <Star className="w-4 h-4 text-amber-500 animate-none" /> Click Leaderboard Registry
                     </h4>
                     
                     <div className="space-y-2.5 max-h-[220px] overflow-y-auto pr-2">
@@ -1014,21 +1014,21 @@ export default function AdminModals({
                           return (
                             <div
                               key={s.id}
-                              className="bg-slate-950/40 border border-slate-900 px-4 py-3 rounded-xl flex items-center justify-between text-xs"
+                              className="bg-slate-50 hover:bg-slate-100/50 border border-slate-150 px-4 py-3 rounded-xl flex items-center justify-between text-xs transition-colors"
                             >
                               <div className="flex items-center gap-3">
-                                <span className="font-mono font-bold text-slate-650 text-xs w-4">#{idx + 1}</span>
+                                <span className="font-mono font-bold text-slate-400 text-xs w-4">#{idx + 1}</span>
                                 <img
                                   src={s.img}
                                   alt={s.name}
-                                  className="w-7 h-7 rounded-md object-cover border border-slate-800"
+                                  className="w-7 h-7 rounded-md object-cover border border-slate-200"
                                 />
-                                <div className="flex flex-col">
-                                  <span className="font-bold text-slate-200">{s.name}</span>
-                                  <span className="text-[9px] text-slate-550 font-bold tracking-tight">{s.title}</span>
+                                <div className="flex flex-col text-left">
+                                  <span className="font-bold text-slate-800">{s.name}</span>
+                                  <span className="text-[9px] text-slate-500 font-bold tracking-tight line-clamp-1">{s.title}</span>
                                 </div>
                               </div>
-                              <span className="font-mono font-black text-emerald-450 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg">
+                              <span className="font-mono font-black text-fiverr bg-fiverr/15 border border-fiverr/20 px-2.5 py-1 rounded-lg">
                                 {clicksCount} redirection clicks
                               </span>
                             </div>
@@ -1038,8 +1038,8 @@ export default function AdminModals({
                   </div>
 
                   {/* Visual Click Ratio performance bar chart graphs */}
-                  <div className="bg-slate-900/40 border border-slate-850 p-5 rounded-3xl">
-                    <h4 className="text-white text-xs font-black uppercase tracking-wider mb-4">
+                  <div className="bg-white border border-slate-200 p-5 rounded-3xl shadow-sm text-left">
+                    <h4 className="text-slate-900 text-xs font-black uppercase tracking-wider mb-4 font-sans">
                       Click Performance Relative Ratio Metric
                     </h4>
                     
@@ -1053,12 +1053,12 @@ export default function AdminModals({
                           return (
                             <div key={s.id} className="text-xs">
                               <div className="flex justify-between items-center mb-1 font-bold">
-                                <span className="text-slate-200">{s.name}</span>
-                                <span className="text-emerald-400 font-mono">{clickNum} clicks ({ratioPct}%)</span>
+                                <span className="text-slate-700 font-sans">{s.name}</span>
+                                <span className="text-fiverr font-mono">{clickNum} clicks ({ratioPct}% standard ratio)</span>
                               </div>
-                              <div className="h-4 bg-slate-950 rounded-xl overflow-hidden border border-slate-900">
+                              <div className="h-4 bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-inner">
                                 <div
-                                  className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-500"
+                                  className="h-full bg-gradient-to-r from-fiverr to-teal-500 transition-all duration-500 animate-none"
                                   style={{ width: `${ratioPct}%` }}
                                 />
                               </div>

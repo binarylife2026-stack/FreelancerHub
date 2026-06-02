@@ -221,7 +221,7 @@ export default function App() {
   return (
     <div 
       onMouseMove={handleMouseMove}
-      className="min-h-screen bg-slate-950 font-sans antialiased text-slate-100 selection:bg-emerald-500/20 selection:text-emerald-400 spotlight-wrapper"
+      className="min-h-screen bg-slate-50 font-sans antialiased text-slate-900 selection:bg-fiverr/20 selection:text-fiverr-dark spotlight-wrapper"
     >
       
       {/* 1. Nav Bar layout with dynamic reset-to-home support */}
@@ -283,14 +283,14 @@ export default function App() {
 
       {/* 9. Floating Administrator Console button (subtle, only shown when logged in) */}
       {isAdmin && (
-        <div className="fixed bottom-6 right-6 z-40 block">
+        <div className="fixed bottom-6 right-6 z-40 block animate-none">
           <button
             onClick={() => setIsAdminPanelOpen(true)}
-            className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider px-4 py-3 rounded-xl shadow-lg shadow-amber-500/10 cursor-pointer hover:shadow-amber-500/20 transition-all duration-200"
+            className="flex items-center gap-2 bg-slate-905 bg-slate-900 hover:bg-slate-800 text-white text-xs font-black uppercase tracking-wider px-4.5 py-3 rounded-xl shadow-lg shadow-slate-900/10 cursor-pointer transition-all duration-200 border border-slate-800"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-950"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fiverr opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-fiverr"></span>
             </span>
             Admin Console
           </button>
@@ -322,23 +322,23 @@ export default function App() {
 
       {/* 11. Custom Interactive Non-blocking Toast Alerts system */}
       {toast && (
-        <div className="fixed top-24 right-6 z-[9999] max-w-sm bg-slate-900/95 backdrop-blur border border-slate-800 rounded-2xl p-4 shadow-2xl flex items-start gap-3 animate-bounce-short">
+        <div className="fixed top-24 right-6 z-[9999] max-w-sm bg-white/95 backdrop-blur border border-slate-200 rounded-2xl p-4 shadow-xl flex items-start gap-3 animate-none">
           <div className="mt-0.5">
             {toast.type === 'success' ? (
-              <CheckCircle className="w-5 h-5 text-emerald-400" />
+              <CheckCircle className="w-5 h-5 text-fiverr font-bold" />
             ) : toast.type === 'error' ? (
-              <AlertCircle className="w-5 h-5 text-rose-500" />
+              <AlertCircle className="w-5 h-5 text-rose-500 font-bold" />
             ) : (
-              <Info className="w-5 h-5 text-blue-450" />
+              <Info className="w-5 h-5 text-sky-500 font-bold" />
             )}
           </div>
           <div className="flex-1">
-            <p className="text-xs font-black text-slate-150 tracking-wide text-left">{toast.message}</p>
+            <p className="text-xs font-bold text-slate-800 tracking-wide text-left">{toast.message}</p>
           </div>
           <button
             type="button"
             onClick={() => setToast(null)}
-            className="text-slate-500 hover:text-slate-300 transition-colors p-0.5 cursor-pointer"
+            className="text-slate-400 hover:text-slate-700 transition-colors p-0.5 cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
