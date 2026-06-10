@@ -35,8 +35,8 @@ export default function Hero() {
         >
           Top Tier Freelancing Experts <br />
           <span className="text-slate-500">On-Demand at </span>
-          <span className="text-slate-900 font-extrabold">Freelancer</span>
-          <span className="inline-block text-fiverr italic tracking-tight font-black drop-shadow-[0_0_10px_rgba(36,182,75,0.25)] ml-2.5">Hub</span>
+          <span className="text-slate-900 font-extrabold">Skkill</span>
+          <span className="inline-block text-fiverr italic tracking-tight font-black drop-shadow-[0_0_10px_rgba(36,182,75,0.25)] ml-2.5">Works</span>
         </motion.h1>
 
         {/* Hero Paragraph */}

@@ -30,7 +30,7 @@ export default function Footer({ categories, onSelectCategory }: FooterProps) {
                 <Sparkles className="w-5 h-5 animate-pulse" fill="currentColor" />
               </div>
               <span className="text-lg font-black tracking-tight text-slate-800">
-                Freelancer<span className="text-fiverr italic font-black drop-shadow-[0_0_8px_rgba(36,182,75,0.25)]">Hub</span><span className="text-xs font-mono font-bold text-fiverr">.com</span>
+                Skkill<span className="text-fiverr italic font-black drop-shadow-[0_0_8px_rgba(36,182,75,0.25)]">Works</span><span className="text-xs font-mono font-bold text-fiverr">.com</span>
               </span>
             </a>
             
@@ -40,7 +40,7 @@ export default function Footer({ categories, onSelectCategory }: FooterProps) {
             
             {/* Social Indicators */}
             <div className="flex gap-2">
-              <a href="mailto:info@freelancerhub.com" className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-fiverr hover:border-fiverr/30 hover:bg-slate-100 transition-all">
+              <a href="mailto:info@skkillworks.com" className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-fiverr hover:border-fiverr/30 hover:bg-slate-100 transition-all">
                 <Mail className="w-4 h-4" />
               </a>
               <a href="#" className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-fiverr hover:border-fiverr/30 hover:bg-slate-100 transition-all">
@@ -165,7 +165,7 @@ export default function Footer({ categories, onSelectCategory }: FooterProps) {
 
         {/* Brand Copyright */}
         <div className="border-t border-slate-100 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium text-slate-500">
-          <p>&copy; 2026 Freelancer Hub. All Rights Reserved.</p>
+          <p>&copy; 2026 Skkill Works. All Rights Reserved.</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-slate-700 transition-colors">Privacy Statement</a>
             <a href="#" className="hover:text-slate-700 transition-colors">Cookie Policy</a>

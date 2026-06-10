@@ -51,8 +51,8 @@ export default function Navbar({ isAdmin, onLogout, onOpenLogin, onLogoClick }: 
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-black tracking-tight text-slate-900 flex items-center gap-1 leading-none font-sans">
-              <span>Freelancer</span>
-              <span className="text-fiverr italic font-black drop-shadow-[0_0_8px_rgba(36,182,75,0.35)]">Hub</span>
+              <span>Skkill</span>
+              <span className="text-fiverr italic font-black drop-shadow-[0_0_8px_rgba(36,182,75,0.35)]">Works</span>
             </span>
             <span className="text-[9px] font-mono font-extrabold tracking-widest text-fiverr leading-none mt-1 uppercase">
               Affiliate Directory
